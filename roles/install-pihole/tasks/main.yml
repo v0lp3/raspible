@@ -1,0 +1,25 @@
+---
+- name: Create pihole directory
+  file:
+    path: /opt/pihole
+    state: directory
+    mode: "0755"
+
+- name: Copy docker-compose file
+  copy:
+    src: files/docker-compose.yml
+    dest: /opt/pihole
+
+- name: Start pihole service
+  docker_compose:
+    project_src: /opt/pihole
+    files:
+      - docker-compose.yml
+
+- name: Initialize pihole settings
+  copy:
+    src: files/pihole.conf
+    dest: /opt/pihole/etc-pihole/pihole.conf
+
+- name: Configure reverse dns
+  include_tasks: post-installation.yml

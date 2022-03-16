@@ -1,0 +1,22 @@
+---
+- name: Install unbound
+  apt:
+    name: unbound
+    state: present
+
+- name: Copy unbound config file
+  copy:
+    src: files/unbound.conf
+    dest: /etc/unbound/unbound.conf.d/pi-hole.conf
+
+- name: Start unbound service
+  service:
+    name: unbound
+    state: restarted
+    enabled: yes
+
+- name: Disable unbound-resolvconf
+  service:
+    name: unbound-resolvconf
+    state: stopped
+    enabled: no
