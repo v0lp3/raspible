@@ -4,3 +4,4 @@
 
   roles:
     - role: "install-docker"
+    - role: "install-fish"

@@ -1,0 +1,40 @@
+---
+- name: Add Fish GPG apt Key
+  apt_key:
+    url: https://download.opensuse.org/repositories/shells:fish:release:3/Debian_11/Release.key
+    state: present
+
+- name: Add Fish Repository
+  apt_repository:
+    repo: deb http://download.opensuse.org/repositories/shells:/fish:/release:/3/Debian_11 ./
+    state: present
+
+- name: Update apt and install fish
+  apt:
+    name: fish
+    state: latest
+    update_cache: yes
+
+- name: Set fish as default shell
+  user:
+    name: "{{ ansible_user }}"
+    shell: /usr/bin/fish
+
+- name: Download oh-my-fish
+  get_url:
+    url: https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install
+    dest: /tmp/omf_install.sh
+    mode: 0755
+
+- name: Install oh-my-fish
+  become_user: dietpi
+  shell: /tmp/omf_install.sh -y --noninteractive
+
+- name: Install bob the fish theme with compatibility mode
+  become_user: dietpi
+  shell: "{{item}}"
+  loop:
+    - omf install bobthefish
+    - set -g theme_powerline_fonts no
+  args:
+    executable: /usr/bin/fish
