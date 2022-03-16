@@ -1,0 +1,21 @@
+---
+- name: Create ghidra directory
+  file:
+    path: /opt/ghidra
+    state: directory
+    mode: "0755"
+
+- name: Copy docker files
+  copy:
+    src: "files/{{ item }}"
+    dest: /opt/ghidra
+  loop:
+    - docker-compose.yml
+    - Dockerfile
+    - .env
+
+- name: Start ghidra service
+  docker_compose:
+    project_src: /opt/ghidra
+    files:
+      - docker-compose.yml

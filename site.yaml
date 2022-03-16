@@ -6,3 +6,4 @@
     - role: "install-docker"
     - role: "install-fish"
     - role: "install-pihole"
+    - role: "install ghidra-server"
