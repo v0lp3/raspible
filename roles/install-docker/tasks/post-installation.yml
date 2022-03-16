@@ -1,0 +1,21 @@
+---
+- name: Add docker group
+  group:
+    name: docker
+    state: present
+
+- name: Add current user to docker group
+  user:
+    name: "{{ ansible_user }}"
+    groups: docker
+    append: yes
+
+- name: Ensure that the all services are enabled
+  service:
+    name: "{{item}}"
+    state: started
+    enabled: yes
+
+  loop:
+    - docker
+    - containerd

@@ -1,0 +1,6 @@
+---
+- hosts: raspberry
+  become: true
+
+  roles:
+    - role: "install-docker"
