@@ -11,6 +11,7 @@ This playbook install docker-compose and all services are runned as Docker conta
 - [Fish](https://github.com/fish-shell/fish-shell)
 - [Oh-My-Fish](https://github.com/oh-my-fish/oh-my-fish)
 - [PiHole](https://github.com/pi-hole/pi-hole)
+- [Unbound](https://github.com/NLnetLabs/unbound)
 - [Ghidra-Server](https://github.com/NationalSecurityAgency/ghidra)
 
 ## Credits
