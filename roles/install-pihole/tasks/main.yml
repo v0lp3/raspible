@@ -22,4 +22,4 @@
     dest: /opt/pihole/etc-pihole/pihole.conf
 
 - name: Configure reverse dns
-  include_tasks: post-installation.yml
+  include_tasks: configure-unbound.yml
