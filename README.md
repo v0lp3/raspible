@@ -1,4 +1,4 @@
-# Raspible 🍓
+# 🍓 Raspible
 
 This repository contains some roles I wrote (to learn Ansible and) to quickly set up my raspberry home server the next time I need to reset it.
 
