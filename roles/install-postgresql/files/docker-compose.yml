@@ -1,0 +1,17 @@
+version: "3.7"
+services:
+  db:
+    image: postgres:latest
+    container_name: postgresql
+    environment:
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+      - POSTGRES_DB
+    volumes:
+      - "/opt/postgresql/data:/var/lib/postgresql/data"
+    networks:
+      - private_network
+
+networks:
+  private_network:
+    name: postgres_network

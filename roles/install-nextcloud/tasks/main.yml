@@ -1,0 +1,17 @@
+---
+- name: Create nextcloud directories
+  file:
+    path: "/opt/nextcloud"
+    state: directory
+    mode: "0755"
+
+- name: Copy docker-compose files
+  copy:
+    src: "files/docker-compose.yml"
+    dest: /opt/nextcloud
+
+- name: Start nextcloud service
+  docker_compose:
+    project_src: /opt/nextcloud
+    files:
+      - docker-compose.yml

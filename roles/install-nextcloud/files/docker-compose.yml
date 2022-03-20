@@ -1,0 +1,17 @@
+version: "3.7"
+
+services:
+  nextcloud:
+    image: nextcloud:latest
+    container_name: nextcloud
+    restart: unless-stopped
+    ports:
+      - 8080:80
+    volumes:
+      - /opt/nextcloud:/var/www/html
+    networks:
+      - database_network
+
+networks:
+  database_network:
+    name: postgres_network

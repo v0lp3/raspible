@@ -7,3 +7,5 @@
     - role: "install-fish"
     - role: "install-pihole"
     - role: "install-ghidra"
+    - role: "install-postgresql"
+    - role: "install-nextcloud"

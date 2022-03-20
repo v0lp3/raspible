@@ -1,0 +1,20 @@
+---
+- name: Create postgres directories
+  file:
+    path: "/opt/postgresql"
+    state: directory
+    mode: "0755"
+
+- name: Copy docker-compose files
+  copy:
+    src: "files/{{ item }}"
+    dest: /opt/postgresql
+  loop:
+    - docker-compose.yml
+    - .env
+
+- name: Start postgresql service
+  docker_compose:
+    project_src: /opt/postgresql
+    files:
+      - docker-compose.yml
