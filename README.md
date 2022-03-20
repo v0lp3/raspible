@@ -15,6 +15,7 @@ This playbook install docker-compose and all services are runned as Docker conta
 - [PiHole](https://github.com/pi-hole/pi-hole)
 - [Unbound](https://github.com/NLnetLabs/unbound)
 - [Ghidra-Server](https://github.com/NationalSecurityAgency/ghidra)
+- [Nextcloud](https://github.com/nextcloud/server)
 
 ## Credits
 
