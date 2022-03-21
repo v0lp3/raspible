@@ -6,7 +6,7 @@ This repository contains some roles I wrote (to learn Ansible and) to quickly se
 
 ## Note
 
-This playbook install docker-compose and all services are runned as Docker containers
+This playbook uses docker-compose to run all services under Docker containers
 
 ## References
 
